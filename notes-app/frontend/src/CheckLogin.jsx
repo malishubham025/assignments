@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 
 function CheckLogin({ children }) {
   let token = Cookies.get("username"); // Get the token from cookies
-  console.log(token);
+  
   if (!token) {
     return <Navigate to="/login"  />;
   }

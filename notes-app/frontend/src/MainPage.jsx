@@ -130,7 +130,15 @@ export default function MainPage() {
     setUsername(decoded.username);
 
   }
+  const [copiedNoteId, setCopiedNoteId] = useState(null);
 
+  function handleCopy(text, noteId) {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedNoteId(noteId); // Set the copied note ID
+      setTimeout(() => setCopiedNoteId(null), 2000); // Reset after 2 seconds
+    });
+  }
+  
   
 
 
@@ -208,7 +216,12 @@ export default function MainPage() {
                     <img src={note.photo} alt="" />
                     </div>}
                   <div className="note-actions">
-                    <button className="action-button">Copy</button>
+                  <button
+                      className="action-button"
+                      onClick={() => handleCopy(note.text, note._id)}
+                    >
+                      {copiedNoteId === note._id ? "Copied!" : "Copy"}
+                    </button>
                     <button className="action-button" name={note._id} onClick={()=>{
                       console.log(note.photo);
                       handleClick({
