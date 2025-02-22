@@ -1,21 +1,40 @@
+import React from "react";
 import { useRef, useState, useEffect } from "react";
+import DataContext from "./Context";
+import { Controls } from "./CarouselControls";
+import { waterData,LandData,kidsData } from "./data";
+import CategorySliderbar from "./CategorySidebar";
+import RideCard from "./RideCard";
 
 function Carousel() {
+  
   const containerRef = useRef(null); // Ref for the carousel container
   const [position, setPosition] = useState(0); // Track scroll position
   const [maxScroll, setMaxScroll] = useState(0); // Track maximum scroll position
   const [state, setState] = useState(true); 
+  const {data,setData}=React.useContext(DataContext);
   // Calculate the maximum scroll position
   useEffect(() => {
     if (containerRef.current) {
-      const containerWidth = containerRef.current.offsetWidth;
-      // let total=0;
-      let totalChildrenWidth = 0;
-      Array.from(containerRef.current.children).map((child)=>{
-        totalChildrenWidth=totalChildrenWidth+child.offsetWidth + 16;
-      })
       
-      setMaxScroll(totalChildrenWidth - containerWidth);
+      // let total=0;
+      
+      function calcmaxWidth(){
+        let totalChildrenWidth = 0;
+        const containerWidth = containerRef.current.offsetWidth;
+        Array.from(containerRef.current.children).map((child)=>{
+          totalChildrenWidth=totalChildrenWidth+child.offsetWidth + 16;
+        })
+        setMaxScroll(totalChildrenWidth - containerWidth);
+        console.log(totalChildrenWidth - containerWidth);
+      }
+      calcmaxWidth();
+      window.addEventListener("resize", calcmaxWidth);
+      
+      // Cleanup event listener on unmount
+      return () => window.removeEventListener("resize", calcmaxWidth);
+      
+     
     }
   }, []);
 
@@ -46,60 +65,48 @@ function Carousel() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden" onMouseLeave={()=>{
-      setState(true);
-    }} 
-    onMouseOver={()=>{
-      setState(false);
-    }}
-    >
-      {/* Left Button */}
-      <button
-        className="l-click absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-all"
-        onClick={handleLeftClick}
-        onMouseOver={()=>{
-        setState(false);
-          }
-        }
-      onMouseLeave={()=>{
+    <div className="flex bg-[#22304a]">
+      
+      <div className="w-[34%] bg-[#22304a]">
+        
+        <CategorySliderbar/>
+      </div>
+      <div className="relative w-[60%] mt-[120px] overflow-hidden"
+       onMouseLeave={()=>{
         setState(true);
+      }} 
+      onMouseOver={()=>{
+        setState(false);
       }}
       >
-        ◀
-      </button>
 
-      {/* Right Button */}
-      <button
-        className="r-click absolute right-0 top-1/2 z-10 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-all"
-        onClick={handleRightClick}
-        onMouseOver={()=>{
-          setState(false);
-            }
-          }
-        onMouseLeave={()=>{
-          setState(true);
-        }}
-      >
-        ▶
-      </button>
 
       {/* Cards Container */}
+      <div className="flex ">
+      <h2 className="font-mulish text-[40px] font-black uppercase !leading-[1] tracking-[-0.04em] sm:text-[44px] md:text-[50px] lg:text-[56px] xl:text-6xl text-white text-left">Our Iconic Rides</h2>
+      <Controls mouseleaveHandler={()=>{
+        setState(true);
+      }} mouseoverHandler={()=>{
+        setState(false);
+      }} handleRightClick={handleRightClick} handleLeftClick={handleLeftClick}/>
+      </div>
       <div
         ref={containerRef}
-        className="flex gap-4 transition-transform duration-300"
+        className="flex gap-4 transition-transform duration-300 "
         style={{ transform: `translateX(${-position}px)` }}
       >
         {/* Cards */}
-        {Array.from({ length: 10 }).map((_, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-64 h-64 bg-gray-200 rounded-lg flex items-center justify-center text-2xl font-bold"
-          >
-            Card {index + 1}
-          </div>
-        ))}
+        {data.map((data)=>{
+          return(
+          <RideCard name={data.name} info={data.info} place={data.place} link={data.link}/>
+          );
+        })}
+        
       </div>
     </div>
+    </div>
+    
+ 
   );
 }
 

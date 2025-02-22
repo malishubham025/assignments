@@ -1,1 +1,40 @@
 @import "tailwindcss";
+.one{
+    background: conic-gradient(from 0deg, rgb(232, 233, 241) -55deg, rgb(250, 213, 0) 15deg, rgb(250, 213, 0) 65deg, rgb(232, 233, 241) 135deg, rgb(232, 233, 241));
+}
+.two{
+
+    background: conic-gradient(from 0deg, rgb(232, 233, 241) -5deg, rgb(250, 213, 0) 65deg, rgb(250, 213, 0) 115deg, rgb(232, 233, 241) 185deg, rgb(232, 233, 241));
+}
+.three{
+    background: conic-gradient(from 0deg, rgb(232, 233, 241) 45deg, rgb(250, 213, 0) 115deg, rgb(250, 213, 0) 165deg, rgb(232, 233, 241) 235deg, rgb(232, 233, 241));
+
+}
+.circle{
+    font-family: "Mulish", serif;
+    transition: background-image 1s ease-in-out;
+    /* background-position: 200px; */
+}
+
+.nav div {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(250, 213, 0);
+    margin: 3px 0;
+}
+.grad {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    background-image: linear-gradient(rgba(34, 48, 74, 0), #22304aec 30%, #22304a);
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* background: conic-gradient(from 0deg, rgb(232, 233, 241) 45deg, rgb(250, 213, 0) 115deg, rgb(250, 213, 0) 165deg, rgb(232, 233, 241) 235deg, rgb(232, 233, 241));
+background: conic-gradient(from 0deg, rgb(232, 233, 241) -5deg, rgb(250, 213, 0) 65deg, rgb(250, 213, 0) 115deg, rgb(232, 233, 241) 185deg, rgb(232, 233, 241)); */
