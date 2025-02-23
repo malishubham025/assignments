@@ -39,7 +39,8 @@ function CategorySliderbar() {
             width="52px" // Adjust to make the whole SVG bigger or smaller
             height="52px"
           onClick={() => {handleMove("-2%", "100px")
-            setData(LandData);
+            setData([]); // Clear existing data
+            setTimeout(() => setData(LandData), 10); // Introduce a tiny delay
             document.querySelector(".circle").classList.remove("two");
             document.querySelector(".circle").classList.remove("three");
             document.querySelector(".circle").classList.add("one");
@@ -59,7 +60,8 @@ function CategorySliderbar() {
             width="62px" // Adjust to make the whole SVG bigger or smaller
             height="62px"
           onClick={() => {
-            setData(waterData);
+            setData([]); // Clear existing data
+            setTimeout(() => setData(waterData), 10); // Introduce a tiny delay
             document.querySelector(".circle").classList.remove("one");
             document.querySelector(".circle").classList.remove("three");
             document.querySelector(".circle").classList.add("two");
@@ -78,7 +80,8 @@ function CategorySliderbar() {
             width="48px" // Adjust to make the whole SVG bigger or smaller
             height="48px"
           onClick={() =>{ 
-            setData(kidsData);
+            setData([]); // Clear existing data
+            setTimeout(() => setData(kidsData), 10); // Introduce a tiny delay
             document.querySelector(".circle").classList.remove("two");
             document.querySelector(".circle").classList.remove("one");
             document.querySelector(".circle").classList.add("three");

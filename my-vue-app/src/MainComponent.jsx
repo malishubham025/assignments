@@ -5,7 +5,7 @@ import { Controls } from "./CarouselControls";
 import { waterData,LandData,kidsData } from "./data";
 import CategorySliderbar from "./CategorySidebar";
 import RideCard from "./RideCard";
-
+import {motion} from "motion/react";
 function Carousel() {
   
   const containerRef = useRef(null); // Ref for the carousel container
@@ -96,11 +96,10 @@ function Carousel() {
         style={{ transform: `translateX(${-position}px)` }}
       >
         {/* Cards */}
-        {data.map((data)=>{
-          return(
-          <RideCard name={data.name} info={data.info} place={data.place} link={data.link}/>
-          );
-        })}
+        {data.map((ride, index) => (
+  <RideCard key={`${ride.name}-${index}`} name={ride.name} info={ride.info} place={ride.place} link={ride.link}/>
+))}
+
         
       </div>
     </div>
