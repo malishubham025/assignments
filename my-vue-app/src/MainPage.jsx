@@ -22,7 +22,19 @@ function MainPage() {
                             <div className="size-7  mt-[10px]">
                                 <img className="h-full w-full object-contain"  src="https://d22pimhl2qmbj7.cloudfront.net/public/playground_e8b25627b1.svg?w=48&q=75" alt="" />
                             </div>
-                            <div className="flex parent overflow-hidden  ml-[10px]  flex-col gap-1">
+                            <div className="flex parent overflow-hidden  ml-[10px]  flex-col gap-1" onClick={() => {
+                                    if(!showLocations){
+                                        setShowLocations(!showLocations);
+                                        document.querySelector(".locations").classList.remove("removeLocations");
+                                        document.querySelector(".locations").classList.add("showLocations");
+                                    }
+                                    else{
+                                        setShowLocations(!showLocations);
+                                        document.querySelector(".locations").classList.remove("showLocations");
+                                        document.querySelector(".locations").classList.add("removeLocations");
+                                    }
+                                    
+                                }}>
                                 <p className="text-[1.2rem] font-mulish font-sans capitalize  ">Parks</p>
                                 <p className="text-xs inline-block font-mulish font-normal !leading-[1.255] text-gray-500">Explore your favourite Wonderla Park</p>
                                 <div className={`grid locations grid-cols-2 gap-6  `}>
@@ -44,25 +56,13 @@ function MainPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="size-4 ml-[50px] mt-[20px]">
-                                <img src="/down.png" className="w-full h-full" alt="" onClick={() => {
-                                    if(!showLocations){
-                                        setShowLocations(!showLocations);
-                                        document.querySelector(".locations").classList.remove("removeLocations");
-                                        document.querySelector(".locations").classList.add("showLocations");
-                                    }
-                                    else{
-                                        setShowLocations(!showLocations);
-                                        document.querySelector(".locations").classList.remove("showLocations");
-                                        document.querySelector(".locations").classList.add("removeLocations");
-                                    }
-                                    
-                                }} />
+                            <div className="size-6 ml-[50px] mt-[20px]">
+                                <img src="/down.png" className="w-full h-full" alt=""  />
                             </div>
                         </div>
                         <hr className="mt-[10px] text-[#cacacac2]  mb-[10px]"/>
-                        <div className="mt-[20px]  flex">
-                        <div className="size-7">
+                        <div className="mt-[20px]  flex cursor-pointer">
+                        <div className="size-7 cursor-pointer">
                                 <img className="h-full mt-[10px] w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/city_45e0a87cc8.svg?w=48&q=75" alt="" />
                             </div>
                             <div className="flex flex-col gap-1 ml-[20px]">
@@ -72,7 +72,7 @@ function MainPage() {
 
                         </div>
                         <hr className="mt-[10px] text-[#cacacac2]  mb-[10px]"/>
-                        <div className="mt-[20px]  flex">
+                        <div className="mt-[20px]  flex cursor-pointer">
                             <div className="size-7">
                                 <img className="h-full mt-[10px] w-full object-contain" src=" https://d22pimhl2qmbj7.cloudfront.net/public/discount_e3ac599ad9.svg?w=48&q=75" alt="" />
                             </div>
@@ -84,7 +84,7 @@ function MainPage() {
                         </div>
 
                         <hr className="mt-[10px] text-[#cacacac2]  mb-[10px]"/>
-                        <div className="mt-[20px]  flex">
+                        <div className="mt-[20px] cursor-pointer flex">
                             <div className="size-7">
                                 <img className="h-full mt-[10px] w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/discount_e3ac599ad9.svg?w=48&q=75" alt="" />
                             </div>
@@ -96,7 +96,7 @@ function MainPage() {
                         </div>
             
                         <hr className="mt-[10px] text-[#cacacac2]  mb-[10px]"/>
-                        <div className="mt-[20px]  flex bg-[#FAD500] p-[15px] rounded-xl">
+                        <div className="mt-[20px] cursor-pointer  flex bg-[#FAD500] p-[15px] rounded-xl">
                             <div className="size-10">
                                 <img className="h-full mt-[10px] w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/group_booking_1adcd0978a.svg?w=96&q=75" alt="" />
                             </div>
@@ -106,7 +106,7 @@ function MainPage() {
                             </div>
 
                         </div>
-                        <div className="mt-[20px]  flex bg-[#5918df] text-white p-[15px] rounded-xl">
+                        <div className="mt-[20px] cursor-pointer  flex bg-[#5918df] text-white p-[15px] rounded-xl">
                             <div className="size-10">
                                 <img className="h-full mt-[10px] w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/tour_portal_c097403085.svg?w=96&q=75" alt="" />
                             </div>
@@ -116,7 +116,7 @@ function MainPage() {
                             </div>
 
                         </div>
-                        <div className="mt-[20px]  flex bg-[#FAD500] p-[15px] rounded-xl">
+                        <div className="mt-[20px] cursor-pointer  flex bg-[#FAD500] p-[15px] rounded-xl">
                             <div className="size-10">
                                 <img className="h-full w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/group_booking_1adcd0978a.svg?w=96&q=75" alt="" />
                             </div>
@@ -128,7 +128,7 @@ function MainPage() {
                         </div>
                        
 
-                        <div className="mt-[20px]  flex">
+                        <div className="mt-[20px] cursor-pointer  flex">
                             <div className="size-7">
                                 <img className="h-full w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/about_us_3ae10e9512.svg?w=48&q=75" alt="" />
                             </div>
@@ -140,7 +140,7 @@ function MainPage() {
                         </div>
 
                         <hr className="mt-[10px] text-[#cacacac2]  mb-[10px]"/>
-                        <div className="mt-[20px]  flex">
+                        <div className="mt-[20px] cursor-pointer flex">
                             <div className="size-7">
                                 <img className="h-full w-full object-contain" src=" https://d22pimhl2qmbj7.cloudfront.net/public/unlink_1_bb57b8aa2f.svg?w=48&q=75" alt="" />
                             </div>
@@ -152,7 +152,7 @@ function MainPage() {
                         </div>
           
                         <hr className="mt-[10px] text-[#cacacac2]  mb-[10px]"/>
-                        <div className="mt-[20px]  flex ">
+                        <div className="mt-[20px] cursor-pointer  flex ">
                             <div className="size-7">
                                 <img className="h-full w-full object-contain" src="https://d22pimhl2qmbj7.cloudfront.net/public/support_1_f316ee7cce.svg?w=48&q=75" alt="" />
                             </div>
