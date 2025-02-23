@@ -17,10 +17,51 @@
 }
 
 .nav div {
-    width: 35px;
-    height: 5px;
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
     background-color: rgb(250, 213, 0);
-    margin: 3px 0;
+    margin: 2px 0;
+}
+body{
+    font-family: "Mulish", serif;
+}
+.slide{
+    /* right: 0; */
+    transform: translateX(-700px);
+    transition-duration: 500ms;
+}
+.black{
+    visibility: hidden;
+    
+}
+.locations{
+    transition-duration: 1000ms;
+    /* display: none; */
+    overflow: hidden;
+    height: 10px;
+    transform: translateY(-290px); 
+}
+.showLocations{
+    height: 220px;
+    transition-duration: 500ms;
+    transform: translateY(0px);   
+}
+.removeLocations{
+    transform: translateY(-290px);   
+}
+.slider{
+    right: -700px;
+
+}
+.c{
+    -webkit-box-shadow: 3px 10px 14px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 10px 14px -9px rgba(0,0,0,0.75);
+    box-shadow: 3px 10px 14px -9px rgba(0,0,0,0.75);
+}
+.slide-right{
+    transform: translateX(600px);
+    transition-duration: 500ms;
 }
 .grad {
     position: absolute;

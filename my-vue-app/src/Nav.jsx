@@ -10,8 +10,16 @@ function NavBar(){
             setState(false);
         }
       });
+    function handleClick(){
+        document.body.style.overflow = "hidden"; 
+        document.querySelector(".slider").classList.remove("slide-right");
+        document.querySelector(".slider").classList.add("slide");
+        document.querySelector(".black").style.visibility="visible";
+        
+    }
     return(
         <div className="flex w-full border-r-[10px]  mt-[40px] text-white justify-center fixed z-20  " >
+         
            <div className=" rounded-2xl w-[80%] flex align-middle justify-center" style={state?{backgroundColor:"white",color:"#788beb"}:null}>
            <img src="https://d22pimhl2qmbj7.cloudfront.net/public/Main_Logo_0ad2299b54.png?w=128&q=75 1x, https://d22pimhl2qmbj7.cloudfront.net/public/Main_Logo_0ad2299b54.png?w=256&q=75 2x" alt="" />
             <div className="flex font-mulish font-bold ml-[30px]" >
@@ -23,7 +31,7 @@ function NavBar(){
                 <button className="ml-[30px] mr-[30px] cursor-pointer"><p>Book Tickets</p></button>
             </div>
             
-            <div className="nav  flex-col cursor-pointer">
+            <div className="nav  flex-col cursor-pointer" onClick={handleClick}>
                 <div></div>
                 <div></div>
                 <div></div>
