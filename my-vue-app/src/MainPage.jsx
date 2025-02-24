@@ -18,11 +18,7 @@ function MainPage() {
                             document.body.style.overflow = "auto";
                         }}> &#x2715; </button>
                         </div>
-                        <div className="mt-[50px] flex relative  cursor-pointer">
-                            <div className="size-7  mt-[10px]">
-                                <img className="h-full w-full object-contain"  src="https://d22pimhl2qmbj7.cloudfront.net/public/playground_e8b25627b1.svg?w=48&q=75" alt="" />
-                            </div>
-                            <div className="flex parent overflow-hidden  ml-[10px]  flex-col gap-1" onClick={() => {
+                        <div className="mt-[50px] flex relative  cursor-pointer" onClick={() => {
                                     if(!showLocations){
                                         setShowLocations(!showLocations);
                                         document.querySelector(".locations").classList.remove("removeLocations");
@@ -35,6 +31,10 @@ function MainPage() {
                                     }
                                     
                                 }}>
+                            <div className="size-7  mt-[10px]">
+                                <img className="h-full w-full object-contain"  src="https://d22pimhl2qmbj7.cloudfront.net/public/playground_e8b25627b1.svg?w=48&q=75" alt="" />
+                            </div>
+                            <div className="flex parent overflow-hidden  ml-[10px]  flex-col gap-1" >
                                 <p className="text-[1.2rem] font-mulish font-sans capitalize  ">Parks</p>
                                 <p className="text-xs inline-block font-mulish font-normal !leading-[1.255] text-gray-500">Explore your favourite Wonderla Park</p>
                                 <div className={`grid locations grid-cols-2 gap-6  `}>
