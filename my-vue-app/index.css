@@ -36,19 +36,43 @@ body{
     
 }
 .locations{
-    transition-duration: 1000ms;
-    /* display: none; */
-    overflow: hidden;
+    transition-duration: 500ms;
+    visibility: hidden;
+    /* overflow: hidden; */
     height: 10px;
-    transform: translateY(-290px); 
+    /* transform: translateY(-290px);  */
 }
 .showLocations{
+    visibility: visible;
     height: 220px;
     transition-duration: 500ms;
     transform: translateY(0px);   
 }
-.removeLocations{
-    transform: translateY(-290px);   
+.quick-links {
+    transition: opacity 200ms ease-in-out, height 500ms ease-in-out;
+    opacity: 0;
+    height: 10px;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+.invisible-gap {
+    /* background-color: #22304a; */
+    /* pointer-events: none; */
+    height: 10px; 
+    position: relative;
+    bottom: 30px;/* Adjust based on your design */
+    width: 100%;
+}
+.loc{
+    transition-duration: 300ms;
+}
+.down{
+    transition-duration: 300ms;
+    transform: rotate(180deg)
+}
+.quick-links-display {
+    opacity: 1;
+    height: 100px;
+    pointer-events: auto;
 }
 .slider{
     right: -700px;
